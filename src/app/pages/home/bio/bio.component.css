@@ -1,3 +1,7 @@
+#about {
+  margin-bottom: 6rem;
+}
+
 .bio-section{
   display: flex;
   align-items: center;  
@@ -7,7 +11,9 @@
   max-width: 960px;
   margin: 48px auto 0;
   gap: 2rem;
-  background: linear-gradient(to right, #f9fcff, #f0f4ff);;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(to right, #f9fcff, #f0f4ff);
   border-radius: 12px;
   animation: fadeInUp 0.6s ease-in-out;
   .tech-stack {
@@ -68,7 +74,8 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #444;
+  color: #1a73e8;
+  font-weight: 500;
 }
 
 .material-icons{
@@ -76,7 +83,8 @@
 }
 
 .contact-links a:hover {
-  color: #4a90e2;
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
 
@@ -84,6 +92,20 @@
   .bio-right img {
     width: 160px;
     height: 160px;
+  }
+
+  .bio-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .bio-right {
+    margin-top: 1rem;
+  }
+
+  .bio-left {
+    padding: 0;
   }
 }
 

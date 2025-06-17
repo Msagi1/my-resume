@@ -1,6 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="main-toolbar" [class.shrink]="isSticky">
     <a mat-button routerLink="/" class="name">Manjusha Sagi</a>
     <span class="spacer"></span>
-    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a mat-button routerLink="/projects" routerLinkActive="active-link">projects</a>
+    <a mat-button routerLink="/" fragment="about">Home</a>
+    <a mat-button routerLink="/" fragment="projects">Projects</a>
+    <a mat-button routerLink="/" fragment="experience">Experience</a>
+    <a href="assets/MSagi_Resume.pdf" download>
+        <button mat-raised-button color="primary">Download Resume</button>
+    </a>
 </mat-toolbar>

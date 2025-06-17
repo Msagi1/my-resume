@@ -2,42 +2,49 @@
     flex: 1 1 auto;
 }
 
-.name {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: white;
-  text-decoration: none;
-  }
-
-  .name:hover {
-    cursor: pointer;
-    opacity: 0.85;
-  }
-
-mat-toolbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #515e6b;
-    color: white;
+  .main-toolbar {
     position: sticky;
     top: 0;
-    height: 48px;
-    padding: 0 16px;
     z-index: 1000;
-  }
-  a {
-    text-decoration: none;
-    color: white;
-    margin-left: 20px;
-    transition: color 0.3s ease;
-  }
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    transition: all 0.3s ease;
+    background: #ede9fe;
+    height: 96px; 
+    transform: translateY(0);
+    transition: transform 0.3s ease, height 0.3s ease;
+    .name {
+      font-size: 1.5rem;
+      font-weight: 500;
+      transition: font-size 0.3s ease;
+      color: #5b21b6;
+    }
+  
+    a[mat-button],  a[mat-raised-button]{
+      font-size: 1rem;
+      margin-left: 1rem;
+      transition: font-size 0.3s ease;
+      opacity: 0.85;
+      font-weight: 500;
+      color: #4c1d95;
+      &:hover {
+        color: #7c3aed;
+      }
+    }
+  
+    &.shrink {
+      height: 64px; 
+      transform: translateY(-10px);
+      height: 64px;
+  
+      .name {
+        font-size: 1.2rem;
+      }
+  
+      a[mat-button], a[mat-raised-button] {
+        font-size: 0.95rem;
+      }
+    }
 
-  a:hover {
-    color: #bbdefb; /* Light blue hover */
-  }
-
-  .active-link {
-    border-bottom: 2px solid white;
-    padding-bottom: 2px;
   }

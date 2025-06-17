@@ -2,3 +2,14 @@
 body {
     font-family: 'Poppins', sans-serif;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :target::before {
+    content: "";
+    display: block;
+    height: 180px; /* Match your header height */
+    margin-top: -180px;
+  }

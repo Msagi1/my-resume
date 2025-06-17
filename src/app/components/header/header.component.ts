@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
@@ -11,4 +11,11 @@ import { RouterModule } from '@angular/router';
     styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent {}
+export class HeaderComponent {
+    isSticky = false;
+
+    @HostListener('window:scroll', [])
+    onWindowScroll() {
+      this.isSticky = window.scrollY > 60; // adjust as needed
+    }
+}
