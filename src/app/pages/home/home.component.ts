@@ -3,11 +3,12 @@ import { BioComponent } from "./bio/bio.component";
 import { ProjectComponent } from "./projects/projects.component";
 import { ActivatedRoute } from "@angular/router";
 import { ExperienceComponent } from "../experience/experience.component";
+import { SkillsComponent } from "./skills/skills.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [BioComponent, ProjectComponent, ExperienceComponent],
+    imports: [BioComponent, SkillsComponent, ProjectComponent, ExperienceComponent],
     styleUrls: ['./home.component.css'],
     templateUrl: 'home.component.html'
 })

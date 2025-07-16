@@ -1,0 +1,31 @@
+<section class="skills-section" id="skills" aria-labelledby="skills-heading">
+    <div class="skills-container">
+      <h2 class="skills-heading" id="skills-heading">Technical Skills</h2>
+      <p class="skills-description">
+        Technologies and tools I use to bring ideas to life
+      </p>
+  
+      <div class="skills-grid" role="list" aria-label="Technical skills organized by category">
+        
+        <div class="skill-category" 
+             role="listitem"
+             *ngFor="let category of skillCategories">
+          <div class="category-header">
+            <span class="material-icons category-icon" aria-hidden="true">{{ category.icon }}</span>
+            <h3 class="category-title">{{ category.title }}</h3>
+          </div>
+          <div class="skill-tags" role="list" [attr.aria-label]="category.title + ' technologies'">
+            <span class="skill-tag" 
+                  role="listitem"
+                  *ngFor="let skill of category.skills"
+                  [class.learning]="skill.isLearning">
+              {{ skill.name }}<span *ngIf="skill.isLearning"> (Learning)</span>
+            </span>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <div class="section-divider" role="presentation" aria-hidden="true"></div>
