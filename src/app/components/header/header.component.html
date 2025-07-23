@@ -1,10 +1,67 @@
-<mat-toolbar class="main-toolbar" [class.shrink]="isSticky">
-    <a mat-button routerLink="/" class="name">Manjusha Sagi</a>
-    <span class="spacer"></span>
-    <a mat-button routerLink="/" fragment="about">Home</a>
-    <a mat-button routerLink="/" fragment="projects">Projects</a>
-    <a mat-button routerLink="/" fragment="experience">Experience</a>
-    <a href="assets/MSagi_Resume.pdf" download>
-        <button mat-raised-button color="primary">Download Resume</button>
+<mat-toolbar class="main-toolbar" 
+             [class.shrink]="isSticky" 
+             role="navigation" 
+             aria-label="Main navigation">
+  
+  <!-- Brand/Logo -->
+  <a mat-button 
+     routerLink="/" 
+     class="name"
+     aria-label="Manjusha Sagi - Frontend Engineer, go to home page">
+    Manjusha Sagi
+  </a>
+  
+  <span class="spacer"></span>
+  
+  <!-- Navigation Links -->
+  <nav class="nav-links" role="menubar" aria-label="Page sections">
+    
+    <a mat-button 
+       routerLink="/" 
+       fragment="about"
+       [class.active]="activeSection === 'about'"
+       role="menuitem"
+       aria-label="Navigate to About section">
+      About
     </a>
+    
+    <a mat-button 
+       routerLink="/" 
+       fragment="skills"
+       [class.active]="activeSection === 'skills'"
+       role="menuitem"
+       aria-label="Navigate to Skills section">
+      Skills
+    </a>
+    
+    <a mat-button 
+       routerLink="/" 
+       fragment="projects"
+       [class.active]="activeSection === 'projects'"
+       role="menuitem"
+       aria-label="Navigate to Projects section">
+      Projects
+    </a>
+    
+    <a mat-button 
+       routerLink="/" 
+       fragment="experience"
+       [class.active]="activeSection === 'experience'"
+       role="menuitem"
+       aria-label="Navigate to Experience section">
+      Experience
+    </a>
+    
+  </nav>
+  
+  <!-- Download Resume - Fixed Structure -->
+  <a href="assets/MSagi_Resume.pdf" 
+     download="Manjusha_Sagi_Resume.pdf"
+     mat-raised-button 
+     color="primary"
+     class="resume-download"
+     aria-label="Download Manjusha's resume as PDF">
+    Download Resume
+  </a>
+  
 </mat-toolbar>

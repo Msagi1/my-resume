@@ -125,16 +125,6 @@
     outline-offset: 2px;
   }
   
-
-  .section-divider {
-    height: 4px;
-    width: 80px;
-    margin: 2rem auto 4rem;
-    background: linear-gradient(to right, #4a90e2, #a18cd1);
-    border-radius: 50px;
-    animation: shimmer 2s infinite alternate ease-in-out;
-  }
-  
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -154,10 +144,6 @@
 
   @media (prefers-reduced-motion: reduce) {
     .skills-section {
-      animation: none;
-    }
-    
-    .section-divider {
       animation: none;
     }
     
