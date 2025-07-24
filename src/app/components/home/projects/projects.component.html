@@ -1,15 +1,58 @@
-<section id="projects" class="projects-section">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Racquetball Score Tracker (iOS)</h3>
-        <p>An iPhone app to track racquetball scores in real-time, built with React Native and Firebase.</p>
+<section id="projects" class="projects-section" aria-labelledby="projects-heading">
+  <h2 class="section-title" id="projects-heading">Featured Projects</h2>
+  <p class="section-description">
+    A showcase of my development work emphasizing modern frameworks, API integration, and accessibility-first design.
+  </p>
+  
+  <div class="projects-grid" role="list" aria-label="Featured projects">
+    
+    <!-- DevFeed Project -->
+    <article class="project-card" role="listitem">
+      <h3>DevFeed</h3>
+      <p>A developer news aggregator built with React and TypeScript. Features real-time content from the DEV.to API with search, tag filtering, dark mode toggle, and pagination. Demonstrates modern React patterns and responsive design.</p>
+      <p class="tech-stack" aria-label="Technologies used">React • TypeScript • React Router • DEV.to API • CSS-in-JS</p>
+      
+      <div class="project-links" role="group" aria-label="Project links">
+        <a href="https://github.com/Msagi1/Devfeed" 
+           target="_blank" 
+           rel="noopener" 
+           class="project-link"
+           aria-label="View DevFeed source code on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://devfeedreact.netlify.app/" 
+           target="_blank" 
+           rel="noopener" 
+           class="project-link"
+           aria-label="View DevFeed live demo (opens in new tab)">
+          Live Demo
+        </a>
       </div>
-      <div class="project-card">
-        <h3>Racquetball Score Tracker (iOS)</h3>
-        <p>An iPhone app to track racquetball scores in real-time, built with React Native and Firebase.</p>
-        <p class="tech-stack">React Native • Firebase • Expo</p>
-        <a href="https://github.com/yourusername/racquetball-tracker" target="_blank" class="project-link">GitHub</a>
+    </article>
+
+    <!-- Portfolio Project -->
+    <article class="project-card" role="listitem">
+      <h3>Portfolio Website</h3>
+      <p>A fully accessible portfolio built with Angular featuring ARIA compliance, semantic HTML, and modern design patterns. Emphasizes accessibility-first development following WCAG guidelines with screen reader optimization and keyboard navigation support.</p>
+      <p class="tech-stack" aria-label="Technologies used">Angular • TypeScript • CSS3 • ARIA • WCAG Compliant</p>
+      
+      <div class="project-links" role="group" aria-label="Project links">
+        <a href="https://github.com/Msagi1/my-resume" 
+           target="_blank" 
+           rel="noopener" 
+           class="project-link"
+           aria-label="View Portfolio source code on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://manjusha-sagi.netlify.app" 
+           target="_blank" 
+           rel="noopener" 
+           class="project-link"
+           aria-label="View Portfolio live demo (opens in new tab)">
+          Live Demo
+        </a>
       </div>
-    </div>
+    </article>
+
+  </div>
 </section>
