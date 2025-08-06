@@ -11,34 +11,53 @@ import { ExperienceComponent } from "./experience/experience.component";
     standalone: true,
     imports: [BioComponent, SkillsComponent, ProjectComponent, ExperienceComponent],
     styleUrls: ['./home.component.css'],
-    templateUrl: 'home.component.html'
+    templateUrl: './home.component.html'
 })
-
 export class HomeComponent implements AfterViewInit, OnDestroy {
-  private destroy$ = new Subject<void>();
+    private destroy$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute) {}
+    // Different scroll offsets for each section
+    private sectionOffsets: { [key: string]: number } = {
+        'about': 90,
+        'skills': 90,
+        'projects': 90,
+        'experience': 140 
+    };
 
-  ngAfterViewInit(): void {
-      this.route.fragment.pipe(
-          takeUntil(this.destroy$)
-      ).subscribe((fragment) => {
-          if (fragment) {
-              const element = document.getElementById(fragment);
-              if (element) {
-                  element.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start' 
-                  });
-              } else {
-                  console.warn(`Section with ID '${fragment}' not found`);
-              }
-          }
-      });
-  }
+    constructor(private route: ActivatedRoute) {}
 
-  ngOnDestroy(): void {
-      this.destroy$.next();
-      this.destroy$.complete();
-  }
+    ngAfterViewInit(): void {
+        this.route.fragment.pipe(
+            takeUntil(this.destroy$)
+        ).subscribe((fragment) => {
+            if (fragment) {
+                setTimeout(() => {
+                    this.scrollToSection(fragment);
+                }, 100); // Small delay to ensure DOM is ready
+            }
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
+
+    /**
+     * Scroll to section with custom offset for each section
+     */
+    private scrollToSection(sectionId: string): void {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offset = this.sectionOffsets[sectionId] || 90;
+            const elementPosition = element.offsetTop - offset;
+            
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        } else {
+            console.warn(`Section with ID '${sectionId}' not found`);
+        }
+    }
 }

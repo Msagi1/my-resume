@@ -15,25 +15,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
     isSticky = false;
     activeSection = 'about'; // Default active section
     private destroy$ = new Subject<void>();
+    private isNavigating = false; // Flag to prevent scroll override
 
     constructor(private router: Router) {}
 
     ngOnInit(): void {
-      // Listen for route changes to update active section
-      this.router.events.pipe(
-          filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-          takeUntil(this.destroy$)
-      ).subscribe((event: NavigationEnd) => {
-          // Extract fragment from URL
-          const fragment = event.urlAfterRedirects.split('#')[1];
-          if (fragment) {
-              this.activeSection = fragment;
-          }
-      });
-
-      // Also check on component init
-      this.updateActiveSectionFromUrl();
-  }
+        this.router.events.pipe(
+            filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+            takeUntil(this.destroy$)
+        ).subscribe((event: NavigationEnd) => {
+            const fragment = event.urlAfterRedirects.split('#')[1];
+            if (fragment) {
+                this.activeSection = fragment;
+                this.isNavigating = true;
+                
+                // Allow scroll detection after navigation settles
+                setTimeout(() => {
+                    this.isNavigating = false;
+                }, 1000);
+            }
+        });
+        this.updateActiveSectionFromUrl();
+    }
 
     ngOnDestroy(): void {
         this.destroy$.next();
@@ -44,8 +47,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     onWindowScroll(): void {
         this.isSticky = window.scrollY > 60;
         
-        // Optional: Update active section based on scroll position
-        this.updateActiveSectionFromScroll();
+        // Only update active section from scroll if not currently navigating
+        if (!this.isNavigating) {
+            this.updateActiveSectionFromScroll();
+        }
     }
 
     /**
@@ -64,20 +69,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
      */
     private updateActiveSectionFromScroll(): void {
         const sections = ['about', 'skills', 'projects', 'experience'];
-        const scrollPosition = window.scrollY + 200; // Offset for better detection
+        const scrollPosition = window.scrollY;
 
-        for (const section of sections) {
+        // Check which section is closest to the top of viewport
+        let closestSection = 'about';
+        let closestDistance = Infinity;
+
+        sections.forEach(section => {
             const element = document.getElementById(section);
             if (element) {
                 const rect = element.getBoundingClientRect();
-                const elementTop = rect.top + window.scrollY;
-                const elementBottom = elementTop + rect.height;
-
-                if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-                    this.activeSection = section;
-                    break;
+                const distanceFromTop = Math.abs(rect.top - 100); // 100px buffer for header
+                
+                if (distanceFromTop < closestDistance) {
+                    closestDistance = distanceFromTop;
+                    closestSection = section;
                 }
             }
+        });
+
+        if (this.activeSection !== closestSection) {
+            this.activeSection = closestSection;
         }
     }
 }
