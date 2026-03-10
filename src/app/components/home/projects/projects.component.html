@@ -6,7 +6,7 @@
 
   <div class="projects-grid" role="list" aria-label="Featured projects">
 
-        <!--AI Notes App-->
+    <!--AI Notes App-->
     <article class="project-card" role="listitem">
       <h3>AI Notes</h3>
 
@@ -40,6 +40,42 @@
 
         <a href="https://ask-notes-ai.netlify.app/notes" target="_blank" rel="noopener" class="project-link"
           aria-label="View AI Notes live demo (opens in new tab)">
+          Live Demo
+        </a>
+      </div>
+    </article>
+
+    <article class="project-card" role="listitem">
+      <h3>Bullet AI</h3>
+
+      <p>
+        An AI-powered resume bullet improver built with modern Next.js architecture.
+        Users can enter an existing resume bullet and a job description line,
+        and the application rewrites the bullet to better align with the role.
+        The interface focuses on simplicity and fast iteration with tone options
+        (Neutral, Technical, Impact) and persistent attempt history.
+      </p>
+
+      <p>
+        The application uses a Next.js API route as a secure backend layer that
+        calls the Claude AI API. This keeps the API key protected on the server
+        while allowing the frontend to request improvements through a simple
+        <code>/api/improve</code> endpoint. Generated results are automatically
+        saved in localStorage so users can review and compare previous attempts.
+      </p>
+
+      <p class="tech-stack" aria-label="Technologies used">
+        Next.js • React • TypeScript • Claude API • Serverless API Routes • Vercel • localStorage
+      </p>
+
+      <div class="project-links" role="group" aria-label="Project links">
+        <a href="https://github.com/Msagi1/bullet-ai.git" target="_blank" rel="noopener" class="project-link"
+          aria-label="View Bullet AI source code on GitHub (opens in new tab)">
+          GitHub
+        </a>
+
+        <a href="https://bullet-ai-nu.vercel.app/" target="_blank" rel="noopener" class="project-link"
+          aria-label="View Bullet AI live demo (opens in new tab)">
           Live Demo
         </a>
       </div>
