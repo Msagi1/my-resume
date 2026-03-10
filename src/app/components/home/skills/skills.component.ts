@@ -40,19 +40,29 @@ export class SkillsComponent implements OnInit {
       icon: 'web',
       skills: [
         { name: 'AngularJS' },
-        { name: 'Angular 8' },
         { name: 'Angular 11' },
+        { name: 'Angular 20' },
         { name: 'Angular Material' },
         { name: 'Bootstrap' },
-        { name: 'React', isLearning: true, description: 'Built a simple project, continuing to learn' }
+        { name: 'React', isLearning: true, description: 'Hands-on project experience' },
+        { name: 'Next.js', isLearning: true, description: 'Hands-on project experience' }
       ]
     },
     {
-      title: 'Database & Backend',
+      title: 'Backend & AI Integration',
       icon: 'storage',
       skills: [
         { name: 'SQL' },
-        { name: 'MySQL' }
+        { name: 'MySQL' },
+        { name: 'Node.js', isLearning: true },
+      ]
+    },
+    {
+      title: 'AI & External APIs',
+      icon: 'smart_toy',
+      skills: [
+        { name: 'OpenAI API' },
+        { name: 'Claude API' }
       ]
     },
     {
@@ -60,7 +70,10 @@ export class SkillsComponent implements OnInit {
       icon: 'build',
       skills: [
         { name: 'Git' },
-        { name: 'GitHub' }
+        { name: 'GitHub' },
+        { name: 'Vercel' },
+        { name: 'Netlify' },
+        { name: 'Render' }
       ]
     }
   ];

@@ -10,7 +10,9 @@ import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from "@angula
 export class BioComponent implements OnInit, AfterViewInit {
     @ViewChild('typingText', { static: false }) typingText!: ElementRef;
 
-    private originalText = `Frontend Engineer passionate about building scalable, performant, and delightful web apps using Angular, TypeScript, JavaScript, HTML5, and CSS3.`;
+    private originalText = `
+Frontend Engineer focused on building scalable and performant web applications using Angular, React, TypeScript, JavaScript, HTML, and CSS. Recently building modern web apps that integrate AI APIs and full-stack patterns using tools like Next.js.
+`;
 
     constructor() {}
 
