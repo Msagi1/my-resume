@@ -9,14 +9,23 @@ My personal portfolio website built with Angular. It showcases my 7+ years of fr
 - 📱 **Responsive design** for all devices
 - ♿ **Screen reader optimized** with proper WCAG guidelines
 - 🎨 **Clean, modern styling** with gradients and animations
+- 📂 **Project showcase** including AI-powered applications
 
 ## 📦 Tech Stack
 
-- [Angular](https://angular.io/) - Frontend framework
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Angular Material](https://material.angular.io/) - UI components  
-- CSS3 - Modern styling
-- ARIA/WCAG - Accessibility standards
+Frontend
+- Angular
+- TypeScript
+- Angular Material
+- HTML5 / CSS3
+
+Projects featured
+- React
+- Next.js
+- AI API integrations
+
+Deployment
+- Netlify
 
 ## 🧪 How to Run Locally
 
