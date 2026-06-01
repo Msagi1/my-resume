@@ -10,10 +10,6 @@ import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from "@angula
 export class BioComponent implements OnInit, AfterViewInit {
     @ViewChild('typingText', { static: false }) typingText!: ElementRef;
 
-    private originalText = `
-Frontend Engineer focused on building scalable and performant web applications using Angular, React, TypeScript, JavaScript, HTML, and CSS. Recently building modern web apps that integrate AI APIs and full-stack patterns using tools like Next.js.
-`;
-
     constructor() {}
 
     ngOnInit(): void {
@@ -29,7 +25,7 @@ Frontend Engineer focused on building scalable and performant web applications u
     scrollToProjects(): void {
         const projectsSection = document.getElementById('projects');
         if (projectsSection) {
-            projectsSection.scrollIntoView({ 
+            projectsSection.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
@@ -40,18 +36,18 @@ Frontend Engineer focused on building scalable and performant web applications u
         if (!this.typingText?.nativeElement) return;
 
         const element = this.typingText.nativeElement;
-        
+
         const originalHTML = element.innerHTML;
-        
+
         element.innerHTML = '';
         element.classList.add('typing');
-        
+
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = originalHTML;
         const plainText = tempDiv.textContent || tempDiv.innerText || '';
 
         let i = 0;
-        const typeSpeed = 30; 
+        const typeSpeed = 30;
 
         const typeWriter = () => {
             if (i < plainText.length) {

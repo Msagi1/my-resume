@@ -21,15 +21,29 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         'about': 90,
         'skills': 90,
         'projects': 90,
-        'experience': 140 
+        'experience': 140
     };
 
     constructor(private route: ActivatedRoute) {}
 
     ngAfterViewInit(): void {
+        // On a fresh load/refresh, always start at the intro screen.
+        // Clear any leftover #fragment (e.g. #about) the browser kept in the URL...
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
+        // ...and ignore the fragment value that exists at load time, so we don't
+        // auto-scroll on refresh. We only scroll on fragment changes the user
+        // triggers afterwards (clicking a nav link or the scroll cue).
+        let isInitialLoad = true;
         this.route.fragment.pipe(
             takeUntil(this.destroy$)
         ).subscribe((fragment) => {
+            if (isInitialLoad) {
+                isInitialLoad = false;
+                return;
+            }
             if (fragment) {
                 setTimeout(() => {
                     this.scrollToSection(fragment);
@@ -51,7 +65,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         if (element) {
             const offset = this.sectionOffsets[sectionId] || 90;
             const elementPosition = element.offsetTop - offset;
-            
+
             window.scrollTo({
                 top: elementPosition,
                 behavior: 'smooth'

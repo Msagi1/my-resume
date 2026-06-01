@@ -1,178 +1,97 @@
-#experience {
-  margin-top: 6rem;
-  padding: 4rem 2rem;
-  background-color: #f8f9fb;
-  border-radius: 16px;
-}
-
 .experience-section {
-  max-width: 1000px;
-  margin: auto;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-6) 2rem;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  color: #1e40af;
-  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 600;
   text-align: center;
-  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
 }
-
 .section-description {
   text-align: center;
-  font-size: 1.1rem;
-  color: #64748b;
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 auto var(--space-5);
+  max-width: 560px;
   line-height: 1.6;
 }
 
+/* Timeline rail */
 .experience-timeline {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
+  padding-left: 2rem;
+}
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1.5px;
+  background: var(--border);
 }
 
 .experience-card {
-  background: linear-gradient(135deg, #ffffff, #f8fafc);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
   position: relative;
+  background: transparent;
+  padding: 0;
 }
-
-.experience-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: rgba(30, 64, 175, 0.2);
-}
-
-.experience-card:not(:last-child)::after {
-  content: '';
+.experience-card::before {
+  content: "";
   position: absolute;
-  left: 2rem;
-  bottom: -1rem;
-  width: 2px;
-  height: 2rem;
-  background: linear-gradient(to bottom, #3b82f6, transparent);
+  left: -2rem;
+  top: 7px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
 }
 
-.experience-header {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
+.experience-header { margin-bottom: 0.85rem; }
 .job-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.3;
-}
-
-.company {
-  font-size: 1.1rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #3b82f6;
-  margin: 0 0 0.5rem 0;
+  color: var(--ink);
+  margin: 0 0 0.25rem;
 }
-
+.company {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.2rem;
+}
 .date {
-  font-size: 0.9rem;
-  color: #64748b;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
   font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.01em;
   margin: 0;
-  font-style: italic;
 }
 
-.achievements {
-  margin: 0;
-  padding-left: 1.5rem;
-  line-height: 1.7;
-}
-
+.achievements { margin: 0; padding-left: 1.1rem; }
 .achievements li {
-  margin-bottom: 0.75rem;
-  color: #475569;
-  position: relative;
+  margin-bottom: 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.6;
 }
+.achievements li::marker { color: var(--accent); }
+.achievements li:last-child { margin-bottom: 0; }
 
-.achievements li::marker {
-  color: #3b82f6;
-}
-
-.achievements li:last-child {
-  margin-bottom: 0;
-}
-
-.achievements li:has-text("50%"),
-.achievements li:has-text("80%") {
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  #experience {
-    margin-top: 4rem;
-    padding: 3rem 1.5rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .experience-card {
-    padding: 1.5rem;
-  }
-  
-  .job-title {
-    font-size: 1.3rem;
-  }
-  
-  .company {
-    font-size: 1rem;
-  }
-  
-  .achievements {
-    padding-left: 1.2rem;
-  }
-  
-  .experience-card::after {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  #experience {
-    padding: 2rem 1rem;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .experience-card {
-    padding: 1.25rem;
-  }
-  
-  .job-title {
-    font-size: 1.2rem;
-  }
-  
-  .company {
-    font-size: 0.95rem;
-  }
-  
-  .achievements {
-    padding-left: 1rem;
-    line-height: 1.6;
-  }
-  
-  .achievements li {
-    margin-bottom: 0.6rem;
-  }
+@media (max-width: 600px) {
+  .experience-section { padding: var(--space-5) 1.25rem; }
+  .experience-timeline { padding-left: 1.5rem; gap: 2rem; }
+  .job-title { font-size: 1.15rem; }
 }
